@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakshi Pasunuri — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon-deep:#0A0A0A;
+    --maroon:#96731A;
+    --maroon-soft:#B08D2F;
+    --gold:#C7A24B;
+    --gold-light:#E4CD8E;
+    --cream:#F7F1E3;
+    --cream-soft:#EFE4CC;
+    --ink:#1A1512;
+    --ink-soft:#54473A;
+    --rule: rgba(150,115,26,0.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    color:var(--maroon-deep);
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  ::selection{background:var(--gold-light);color:var(--maroon-deep);}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- ornament ---------- */
+  .flourish{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    justify-content:center;
+  }
+  .flourish .line{
+    height:1px;
+    width:64px;
+    background:linear-gradient(90deg, transparent, var(--gold));
+  }
+  .flourish .line.right{background:linear-gradient(90deg, var(--gold), transparent);}
+  .flourish .diamond{
+    width:7px;height:7px;
+    background:var(--gold);
+    transform:rotate(45deg);
+    flex-shrink:0;
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,241,227,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:920px;margin:0 auto;padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav-mark-group{
+    display:flex;align-items:center;gap:12px;
+  }
+  .logo-mark{
+    width:36px;height:36px;flex-shrink:0;
+  }
+  .logo-mark text{
+    font-family:'Cormorant Garamond',serif;
+  }
+  .nav-mark-group .logo-mark{color:var(--maroon-deep);}
+  .nav-mark{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.1rem;font-weight:600;color:var(--maroon-deep);
+    letter-spacing:0.04em;
+  }
+  .hero-crest{
+    width:78px;height:78px;
+    margin:0 auto 26px;
+    color:var(--gold-light);
+  }
+  .nav-links{display:flex;gap:28px;list-style:none;}
+  .nav-links a{
+    font-size:0.86rem;color:var(--ink-soft);
+    transition:color 0.25s ease;
+    position:relative;
+  }
+  .nav-links a:hover{color:var(--maroon);}
+  @media (max-width:640px){
+    .nav-links{gap:16px;}
+    .nav-links a{font-size:0.75rem;}
+  }
+
+  /* ---------- hero ---------- */
+  header.hero{
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(199,162,75,0.16), transparent 55%),
+      linear-gradient(160deg, var(--maroon-deep) 0%, #000000 100%);
+    color:var(--cream);
+    padding:120px 32px 100px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute; inset:14px;
+    border:1px solid rgba(199,162,75,0.3);
+    pointer-events:none;
+  }
+  .hero-eyebrow{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--gold-light);
+    margin-bottom:22px;
+    letter-spacing:0.04em;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.4rem);
+    color:var(--cream);
+    line-height:1.08;
+    margin-bottom:20px;
+  }
+  .hero-role{
+    font-size:1.05rem;
+    color:var(--gold-light);
+    font-weight:400;
+    letter-spacing:0.06em;
+    margin-bottom:34px;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:10px 28px;
+    justify-content:center;
+    font-size:0.85rem;
+    color:rgba(247,241,227,0.72);
+    margin-top:36px;
+  }
+  .hero-meta span{white-space:nowrap;}
+  .hero .flourish{margin:28px 0;}
+  .hero .flourish .line{background:linear-gradient(90deg, transparent, var(--gold));}
+  .hero .flourish .line.right{background:linear-gradient(90deg, var(--gold), transparent);}
+
+  /* ---------- sections ---------- */
+  section{padding:88px 0;}
+  section + section{border-top:1px solid var(--rule);}
+  .section-head{margin-bottom:48px;text-align:center;}
+  .section-label{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:var(--maroon);
+    margin-bottom:8px;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem,4vw,2.6rem);
+  }
+
+  /* about */
+  .about-text{
+    max-width:640px;margin:0 auto;
+    text-align:center;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+  }
+  .about-text strong{color:var(--maroon);font-weight:500;}
+
+  /* skills */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:36px 48px;
+  }
+  @media (max-width:640px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-group h3{
+    font-size:1.3rem;
+    margin-bottom:12px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .skill-group h3::before{
+    content:"";
+    width:5px;height:5px;background:var(--gold);
+    transform:rotate(45deg);
+    flex-shrink:0;
+  }
+  .skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .skill-tags span{
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    border:1px solid var(--rule);
+    padding:6px 14px;
+    background:var(--cream-soft);
+  }
+
+  /* projects */
+  .project{
+    padding:30px 0;
+    border-bottom:1px solid var(--rule);
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:24px;
+  }
+  .project:last-child{border-bottom:none;}
+  @media (max-width:640px){.project{grid-template-columns:1fr;gap:8px;}}
+  .project-tag{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--maroon);
+    font-size:1rem;
+  }
+  .project h3{font-size:1.4rem;margin-bottom:8px;}
+  .project p{color:var(--ink-soft);font-size:0.98rem;}
+  .project-stack{
+    margin-top:10px;font-size:0.78rem;
+    color:var(--gold);
+    letter-spacing:0.03em;
+  }
+
+  /* experience timeline */
+  .timeline{position:relative;padding-left:36px;}
+  .timeline::before{
+    content:"";position:absolute;left:5px;top:6px;bottom:6px;
+    width:1px;background:var(--rule);
+  }
+  .tl-item{position:relative;padding-bottom:44px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-36px;top:5px;
+    width:9px;height:9px;background:var(--gold);
+    transform:rotate(45deg);
+  }
+  .tl-date{
+    font-size:0.78rem;color:var(--maroon);
+    letter-spacing:0.04em;margin-bottom:6px;
+  }
+  .tl-item h3{font-size:1.3rem;margin-bottom:4px;}
+  .tl-item .org{font-size:0.92rem;color:var(--ink-soft);font-style:italic;margin-bottom:8px;font-family:'Cormorant Garamond',serif;}
+  .tl-item p{color:var(--ink-soft);font-size:0.95rem;}
+
+  /* education */
+  .edu-item{
+    display:grid;grid-template-columns:1fr auto;gap:8px 24px;
+    padding:22px 0;border-bottom:1px solid var(--rule);
+    align-items:baseline;
+  }
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item h3{font-size:1.25rem;}
+  .edu-item .school{font-size:0.92rem;color:var(--ink-soft);}
+  .edu-item .years{font-size:0.8rem;color:var(--maroon);white-space:nowrap;}
+  .edu-item .score{font-size:0.85rem;color:var(--gold);margin-top:2px;}
+
+  /* certifications */
+  .cert-list{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px;}
+  @media (max-width:640px){.cert-list{grid-template-columns:1fr;}}
+  .cert-item{
+    padding:16px 0;border-bottom:1px solid var(--rule);
+  }
+  .cert-item h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.1rem;color:var(--maroon-deep);}
+  .cert-item span{font-size:0.8rem;color:var(--ink-soft);}
+
+  /* languages */
+  .lang-row{display:flex;gap:40px;justify-content:center;margin-top:8px;}
+  .lang-row div{text-align:center;}
+  .lang-row .lang-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--maroon-deep);}
+
+  /* contact / footer */
+  footer{
+    background:linear-gradient(160deg, var(--maroon-deep) 0%, #000000 100%);
+    color:var(--cream);
+    padding:90px 32px 50px;
+    text-align:center;
+  }
+  footer .section-label{color:var(--gold-light);}
+  footer h2{color:var(--cream);}
+  footer .about-text{color:rgba(247,241,227,0.75);}
+  .contact-links{
+    display:flex;flex-wrap:wrap;gap:16px 32px;
+    justify-content:center;margin-top:38px;
+  }
+  .contact-links a{
+    font-size:0.88rem;
+    color:var(--gold-light);
+    border-bottom:1px solid rgba(228,205,142,0.35);
+    padding-bottom:3px;
+    transition:border-color 0.25s ease, color 0.25s ease;
+  }
+  .contact-links a:hover{color:var(--cream);border-color:var(--gold-light);}
+  .footer-note{
+    margin-top:60px;font-size:0.75rem;
+    color:rgba(247,241,227,0.4);
+    letter-spacing:0.03em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-mark-group">
+      <svg class="logo-mark" viewBox="0 0 72 72" aria-hidden="true">
+        <circle cx="36" cy="36" r="33" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="36" cy="36" r="27" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.55"/>
+        <line x1="36" y1="2" x2="36" y2="8" stroke="currentColor" stroke-width="1"/>
+        <line x1="36" y1="64" x2="36" y2="70" stroke="currentColor" stroke-width="1"/>
+        <line x1="2" y1="36" x2="8" y2="36" stroke="currentColor" stroke-width="1"/>
+        <line x1="64" y1="36" x2="70" y2="36" stroke="currentColor" stroke-width="1"/>
+        <text x="36" y="46" font-size="26" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0.5">SP</text>
+      </svg>
+      <span class="nav-mark">Sakshi Pasunuri</span>
+    </span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="hero-crest" viewBox="0 0 72 72" aria-hidden="true">
+      <circle cx="36" cy="36" r="33" fill="none" stroke="currentColor" stroke-width="1"/>
+      <circle cx="36" cy="36" r="27" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.55"/>
+      <line x1="36" y1="2" x2="36" y2="8" stroke="currentColor" stroke-width="1"/>
+      <line x1="36" y1="64" x2="36" y2="70" stroke="currentColor" stroke-width="1"/>
+      <line x1="2" y1="36" x2="8" y2="36" stroke="currentColor" stroke-width="1"/>
+      <line x1="64" y1="36" x2="70" y2="36" stroke="currentColor" stroke-width="1"/>
+      <text x="36" y="46" font-size="26" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0.5">SP</text>
+    </svg>
+    <p class="hero-eyebrow">Portfolio</p>
+    <h1>Sakshi Pasunuri</h1>
+    <p class="hero-role">Computer Science Student — Artificial Intelligence, Machine Learning &amp; Data Science</p>
+    <div class="flourish"><span class="line"></span><span class="diamond"></span><span class="line right"></span></div>
+    <p class="hero-meta">
+      <span>Hyderabad, Telangana</span>
+      <span>CGPA 9.833</span>
+      <span>Seeking Data Analyst &amp; AI/ML Internships</span>
+    </p>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-label">Profile</p>
+      <h2>About</h2>
+    </div>
+    <p class="about-text">
+      A Computer Science student specializing in <strong>Artificial Intelligence, Machine Learning, Big Data and Data Science</strong>,
+      with a strong academic record and hands-on experience across Python, data analytics, visualization and AI-driven projects.
+      Presently seeking entry-level opportunities in software, data analytics and AI/ML, where analytical thinking,
+      problem-solving and clear communication can contribute to real-world solutions.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-label">Capabilities</p>
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Programming</h3>
+        <div class="skill-tags">
+          <span>Python</span><span>C</span><span>Java</span><span>HTML/CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data &amp; Analytics</h3>
+        <div class="skill-tags">
+          <span>SQL</span><span>Microsoft Excel</span><span>Pandas</span><span>NumPy</span>
+          <span>Matplotlib</span><span>Tableau</span><span>Data Cleaning</span><span>Data Visualization</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Development &amp; Tools</h3>
+        <div class="skill-tags">
+          <span>Git/GitHub</span><span>Android Studio</span><span>Java/XML</span><span>Firebase</span><span>MS Office</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Core &amp; Strengths</h3>
+        <div class="skill-tags">
+          <span>Data Structures</span><span>RDBMS</span><span>UML</span>
+          <span>Communication</span><span>Problem Solving</span><span>Time Management</span><span>Attention to Detail</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-label">Selected Work</p>
+      <h2>Projects</h2>
+    </div>
+
+    <div class="project">
+      <p class="project-tag">In Progress</p>
+      <div>
+        <h3>AI ElderCare Companion</h3>
+        <p>A multilingual virtual family companion for elderly users, supporting Telugu, Hindi and English with
+        role-based elder and caregiver flows, reminders, conversational assistance and safety-focused features.</p>
+        <p class="project-stack">Android · Java · Firebase · NLP</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <p class="project-tag">Analysis</p>
+      <div>
+        <h3>Student Performance Data Analysis</h3>
+        <p>Analyzed data for 658 students across 468 cohorts and built visualizations to identify performance
+        trends and relationships among attendance, study hours and grades.</p>
+        <p class="project-stack">Python · Excel · Tableau</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <p class="project-tag">Application</p>
+      <div>
+        <h3>Expense Tracker</h3>
+        <p>A Python application that logged and categorized 150+ transactions and generated visual summaries
+        of monthly spending trends.</p>
+        <p class="project-stack">Python</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <p class="project-tag">SIH Shortlist</p>
+      <div>
+        <h3>Civic Crowd Management System</h3>
+        <p>Proposed an AI-based civic-issue reporting platform using image classification to categorize
+        complaints and route alerts. Shortlisted at the institute round, Smart India Hackathon 2025.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-label">Career</p>
+      <h2>Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-date">16 – 30 Aug 2026</p>
+        <h3>Artificial Intelligence Intern</h3>
+        <p class="org">InAmigos Foundation</p>
+        <p>Completed a 15-day AI internship involving practical tasks focused on AI tools, prompting,
+        awareness initiatives and AI-for-social-impact concepts.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">Mar 2023 – Aug 2023</p>
+        <h3>Customer Service Operator</h3>
+        <p class="org">Jagruthi Weekly Magazine</p>
+        <p>Managed inbound and outbound customer calls, maintained accurate records and resolved
+        customer queries in a high-volume environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-label">Academics</p>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-item">
+      <div>
+        <h3>BS in Computer Science — AI, Machine Learning, Big Data, Data Science</h3>
+        <p class="school">Chaitanya Deemed to be University</p>
+        <p class="score">CGPA: 9.833 (through 6th Semester)</p>
+      </div>
+      <p class="years">2023 – 2027</p>
+    </div>
+    <div class="edu-item">
+      <div>
+        <h3>Intermediate (MPC)</h3>
+        <p class="school">Keshav Memorial Junior College</p>
+        <p class="score">798 / 1000</p>
+      </div>
+      <p class="years">2019 – 2021</p>
+    </div>
+    <div class="edu-item">
+      <div>
+        <h3>SSC</h3>
+        <p class="school">Brilliant Grammar High School</p>
+        <p class="score">GPA: 9.2 / 10</p>
+      </div>
+      <p class="years">2019</p>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-label">Credentials</p>
+      <h2>Certifications</h2>
+    </div>
+    <div class="cert-list">
+      <div class="cert-item"><h4>Artificial Intelligence Fundamentals</h4><span>IBM SkillsBuild, 2026</span></div>
+      <div class="cert-item"><h4>Data Analytics Job Simulation</h4><span>Deloitte, 2025</span></div>
+      <div class="cert-item"><h4>Solutions Architecture Job Simulation</h4><span>AWS, 2025</span></div>
+      <div class="cert-item"><h4>Customer Engagement</h4><span>IBM SkillsBuild, 2026</span></div>
+      <div class="cert-item"><h4>Data Entry Operator Pre-Assessment</h4><span>SCOA / Flipkart, 2025</span></div>
+    </div>
+
+    <div class="section-head" style="margin-top:64px;margin-bottom:12px;">
+      <p class="section-label">Fluencies</p>
+      <h2>Languages</h2>
+    </div>
+    <div class="lang-row">
+      <div><p class="lang-name">English</p></div>
+      <div><p class="lang-name">Telugu</p></div>
+      <div><p class="lang-name">Hindi</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="section-label">Get in Touch</p>
+    <h2>Contact</h2>
+    <p class="about-text">
+      Open to Data Analyst and AI/ML internship opportunities. Feel free to reach out — I'd love to talk about how I can contribute.
+    </p>
+    <div class="contact-links">
+      <a href="tel:+918886804133">8886804133</a>
+      <a href="mailto:pasunuri.sakshi2606@gmail.com">pasunuri.sakshi2606@gmail.com</a>
+      <a href="https://linkedin.com/in/pasunuri-sakshi-883380241" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/psakshi2606-stack" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="footer-note">Sakshi Pasunuri · Hyderabad, Telangana</p>
+  </div>
+</footer>
+
+</body>
+</html>
